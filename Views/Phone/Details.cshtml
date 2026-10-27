@@ -45,7 +45,7 @@
         <dt>
             @if (!string.IsNullOrWhiteSpace(Model.Url))
             {
-                <img src="@Url.Content("~/images/" + Model.Url)"
+                <img src="@Url.Content("~/images/" + System.IO.Path.GetFileName(Model.Url.Replace('/', System.IO.Path.DirectorySeparatorChar)))"
                      style="width: 100px; height: auto;" />
             }
         </dt>
@@ -56,3 +56,5 @@
     <a asp-action="Edit" asp-route-id="@Model.ProductId">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
+

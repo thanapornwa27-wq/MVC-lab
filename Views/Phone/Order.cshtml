@@ -46,7 +46,7 @@
                 <td>
                     @if (!string.IsNullOrWhiteSpace(item.Url))
                     {
-                        <img src="@Url.Content("~/images/" + item.Url)"
+                        <img src="@Url.Content("~/images/" + System.IO.Path.GetFileName(item.Url.Replace('/', System.IO.Path.DirectorySeparatorChar)))"
                              style="width: 100px; height: auto;" />
                     }
                 </td>
@@ -62,3 +62,5 @@
         }
     </tbody>
 </table>
+
+

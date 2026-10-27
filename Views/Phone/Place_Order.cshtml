@@ -46,7 +46,7 @@
             <dd class="col-sm-10">
                 @if (!string.IsNullOrWhiteSpace(Model.Url))
                 {
-                    <img src="@Url.Content("~/images/" + Model.Url)"
+                    <img src="@Url.Content("~/images/" + System.IO.Path.GetFileName(Model.Url.Replace('/', System.IO.Path.DirectorySeparatorChar)))"
                          style="width: 500px; height: auto;" />
                 }
             </dd>
@@ -80,3 +80,5 @@
            class="btn btn-info pull-right" />
     <br />
 }
+
+
